@@ -15,11 +15,11 @@ var data = {
 
 window.addEventListener('beforeunload', function (event) {
   var dataJSON = JSON.stringify(data);
-  this.localStorage.setItem('data-local-storage', dataJSON);
+  this.localStorage.setItem('planner-data-local-storage', dataJSON);
 });
 
-if (localStorage.getItem('data-local-storage') !== null) {
-  data = JSON.parse(localStorage.getItem('data-local-storage'));
+if (localStorage.getItem('planner-data-local-storage') !== null) {
+  data = JSON.parse(localStorage.getItem('planner-data-local-storage'));
 }
 
 function handleClick(event) {
@@ -135,11 +135,9 @@ $form.addEventListener('submit', function (event) {
     if (x === dayInput) {
       if (data[x].value === undefined) {
         data[x].push(formData);
-        console.log(formData);
-        console.log(data[x])
       } else {
         for (var i = 0; i < data[x].length; i++) {
-          if (formData.time <= data[x][i].time) {
+          if (Number(formData.time) <= Number(data[x][i].time)) {
             data[x].splice(i, 0, formData);
           }
         }
