@@ -25,6 +25,10 @@ td {
   text-align: start;
 }
 
+.table-left {
+  max-width: 1rem;
+}
+
 .space-between {
   justify-content: space-between;
 }

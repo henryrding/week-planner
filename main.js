@@ -1,5 +1,4 @@
 var $weekButtons = document.querySelector('#week-buttons');
-
 $weekButtons.addEventListener('click', handleClick);
 
 function handleClick(event) {
@@ -17,5 +16,19 @@ function handleClick(event) {
     console.log('friday');
   } else if (event.target.id === 'saturday-button') {
     console.log('saturday');
+  }
+}
+
+var $weekTitle = document.querySelector('h3');
+var $sunday = document.querySelector('#sunday-events');
+var $monday = document.querySelector('#monday-events');
+var $tuesday = document.querySelector('#tuesday-events');
+var $wednesday = document.querySelector('#wednesday-events');
+var $thursday = document.querySelector('#thursday-events');
+var $friday = document.querySelector('#friday-events');
+var $saturday = document.querySelector('#saturday-events');
+function viewSwap(day) {
+  if (day === 'Sunday') {
+
   }
 }
