@@ -1,6 +1,27 @@
 var $weekButtons = document.querySelector('#week-buttons');
 $weekButtons.addEventListener('click', handleClick);
 
+var data = {
+  sunday: [],
+  monday: [],
+  tuesday: [],
+  wednesday: [],
+  thursday: [],
+  friday: [],
+  saturday: [],
+  editing: null,
+  timeId: 0
+};
+
+window.addEventListener('beforeunload', function (event) {
+  var dataJSON = JSON.stringify(data);
+  this.localStorage.setItem('data-local-storage', dataJSON);
+});
+
+if (localStorage.getItem('data-local-storage') !== null) {
+  data = JSON.parse(localStorage.getItem('data-local-storage'));
+}
+
 function handleClick(event) {
   if (event.target.id === 'sunday-button') {
     viewSwap('Sunday');
@@ -102,7 +123,6 @@ $addEntry.addEventListener('click', function () {
 });
 
 var $form = document.querySelector('form');
-
 $form.addEventListener('submit', function (event) {
   event.preventDefault();
   var formData = {
@@ -110,10 +130,17 @@ $form.addEventListener('submit', function (event) {
     time: $form.elements.time.value,
     description: $form.elements.description.value
   };
-  var day = $form.elements.date.value;
-  data.day.push(formData);
+  for (var i = 0; i < data.formData.day.length; i++) {
+    if (formData.time <= data.formData.day[i].time) {
+      data.formData.day.splice(i, 0, formData);
+    }
+  }
 });
 
+var $tbody = document.querySelector('tbody');
 function renderDayEntries(entry) {
-
+  var $tr = document.createElement('tr');
+  var $td = document.createElement('td');
+  $td.className = 'table-left';
+  var $td = document.createElement('td');
 }
