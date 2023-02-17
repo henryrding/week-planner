@@ -133,7 +133,7 @@ $form.addEventListener('submit', function (event) {
   var dayInput = formData.day;
   for (var x in data) {
     if (x === dayInput) {
-      if (data[x].value === undefined) {
+      if (data[x].length === 0) {
         data[x].push(formData);
       } else {
         for (var i = 0; i < data[x].length; i++) {
