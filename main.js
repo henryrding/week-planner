@@ -142,5 +142,27 @@ function renderDayEntries(entry) {
   var $tr = document.createElement('tr');
   var $td = document.createElement('td');
   $td.className = 'table-left';
-  var $td = document.createElement('td');
+  $tr.appendChild($td);
+  var $tdtwo = document.createElement('td');
+  $tr.appendChild($tdtwo);
+}
+
+var $sundayTd = $sunday.querySelectorAll('td');
+var $mondayTd = $monday.querySelectorAll('td');
+var $tuesdayTd = $tuesday.querySelectorAll('td');
+var $wednesdayTd = $wednesday.querySelectorAll('td');
+var $thurdayTd = $thursday.querySelectorAll('td');
+var $fridayTd = $friday.querySelectorAll('td');
+var $saturdayTd = $saturday.querySelectorAll('td');
+var $tdIndex = 0;
+function fillTable(dayArray) {
+  for (var i = 0; i < data.dayArray.length; i++) {
+    var fillDay = '$' + dayArray;
+    fillDay[$tdIndex].textContent = data.dayArray.time;
+    fillDay[$tdIndex + 1].textContent = data.dayArray.description;
+    $tdIndex+=2;
+    if ($tdIndex > 7 ) {
+
+    }
+  }
 }
