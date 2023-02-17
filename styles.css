@@ -1,5 +1,9 @@
 .center {
-  text-align: center;
+  justify-content: center;
+}
+
+.row {
+  display: flex;
 }
 
 th {
@@ -11,5 +15,20 @@ tr:nth-child(odd) {
 }
 
 table {
-  border-color: 1px solid black;
+  border:1px solid black;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+border-left: 1px solid black;
+border-right: 1px solid black;
+height: 1rem;
+text-align: start;
+}
+
+.seven-col {
+  display: flex;
+  flex-basis: calc(100%/7);
 }
