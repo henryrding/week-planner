@@ -29,7 +29,7 @@ var $friday = document.querySelector('#friday-events');
 var $saturday = document.querySelector('#saturday-events');
 function viewSwap(day) {
   if (day === 'Sunday') {
-    $weekTitle.textContent = 'Scheduled Events for Sunday'
+    $weekTitle.textContent = 'Scheduled Events for Sunday';
     $sunday.className = 'row';
     $saturday.className = 'row hidden';
     $monday.className = 'row hidden';
@@ -38,7 +38,7 @@ function viewSwap(day) {
     $thursday.className = 'row hidden';
     $friday.className = 'row hidden';
   } else if (day === 'Monday') {
-    $weekTitle.textContent = 'Scheduled Events for Monday'
+    $weekTitle.textContent = 'Scheduled Events for Monday';
     $sunday.className = 'row hidden';
     $saturday.className = 'row hidden';
     $monday.className = 'row';
@@ -47,7 +47,7 @@ function viewSwap(day) {
     $thursday.className = 'row hidden';
     $friday.className = 'row hidden';
   } else if (day === 'Tuesday') {
-    $weekTitle.textContent = 'Scheduled Events for Tuesday'
+    $weekTitle.textContent = 'Scheduled Events for Tuesday';
     $sunday.className = 'row hidden';
     $saturday.className = 'row hidden';
     $monday.className = 'row hidden';
@@ -56,7 +56,7 @@ function viewSwap(day) {
     $thursday.className = 'row hidden';
     $friday.className = 'row hidden';
   } else if (day === 'Wednesday') {
-    $weekTitle.textContent = 'Scheduled Events for Wednesday'
+    $weekTitle.textContent = 'Scheduled Events for Wednesday';
     $sunday.className = 'row hidden';
     $saturday.className = 'row hidden';
     $monday.className = 'row hidden';
@@ -65,7 +65,7 @@ function viewSwap(day) {
     $thursday.className = 'row hidden';
     $friday.className = 'row hidden';
   } else if (day === 'Thursday') {
-    $weekTitle.textContent = 'Scheduled Events Thursday'
+    $weekTitle.textContent = 'Scheduled Events Thursday';
     $sunday.className = 'row hidden';
     $saturday.className = 'row hidden';
     $monday.className = 'row hidden';
@@ -74,7 +74,7 @@ function viewSwap(day) {
     $thursday.className = 'row';
     $friday.className = 'row hidden';
   } else if (day === 'Friday') {
-    $weekTitle.textContent = 'Scheduled Events for Friday'
+    $weekTitle.textContent = 'Scheduled Events for Friday';
     $sunday.className = 'row hidden';
     $saturday.className = 'row hidden';
     $monday.className = 'row hidden';
@@ -83,7 +83,7 @@ function viewSwap(day) {
     $thursday.className = 'row hidden';
     $friday.className = 'row';
   } else if (day === 'Saturday') {
-    $weekTitle.textContent = 'Scheduled Events for Saturday'
+    $weekTitle.textContent = 'Scheduled Events for Saturday';
     $sunday.className = 'row hidden';
     $saturday.className = 'row';
     $monday.className = 'row hidden';
@@ -99,11 +99,21 @@ var $overlay = document.querySelector('#overlay');
 
 $addEntry.addEventListener('click', function () {
   $overlay.className = 'row';
-})
+});
 
 var $form = document.querySelector('form');
 
 $form.addEventListener('submit', function (event) {
   event.preventDefault();
-  var formData
+  var formData = {
+    day: $form.elements.date.value,
+    time: $form.elements.time.value,
+    description: $form.elements.description.value
+  };
+  var day = $form.elements.date.value;
+  data.day.push(formData);
 });
+
+function renderDayEntries(entry) {
+
+}
