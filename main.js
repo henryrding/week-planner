@@ -130,21 +130,23 @@ $form.addEventListener('submit', function (event) {
     time: $form.elements.time.value,
     description: $form.elements.description.value
   };
-  for (var i = 0; i < data.formData.day.length; i++) {
-    if (formData.time <= data.formData.day[i].time) {
-      data.formData.day.splice(i, 0, formData);
+  var dayInput = $form.elements.date.value;
+  for (var i = 0; i < data.dayInput.length; i++) {
+    if (formData.time <= data.dayInput[i].time) {
+      data.dayInput.splice(i, 0, formData);
     }
   }
 });
 
-var $tbody = document.querySelector('tbody');
-function renderDayEntries(entry) {
+var $tbody = document.querySelectorAll('tbody');
+function renderDayEntries() {
   var $tr = document.createElement('tr');
   var $td = document.createElement('td');
   $td.className = 'table-left';
   $tr.appendChild($td);
   var $tdtwo = document.createElement('td');
   $tr.appendChild($tdtwo);
+  return $tr;
 }
 
 var $sundayTd = $sunday.querySelectorAll('td');
@@ -157,12 +159,16 @@ var $saturdayTd = $saturday.querySelectorAll('td');
 var $tdIndex = 0;
 function fillTable(dayArray) {
   for (var i = 0; i < data.dayArray.length; i++) {
-    var fillDay = '$' + dayArray;
-    fillDay[$tdIndex].textContent = data.dayArray.time;
-    fillDay[$tdIndex + 1].textContent = data.dayArray.description;
-    $tdIndex+=2;
-    if ($tdIndex > 7 ) {
-
+    var fillDay = '$' + dayArray + 'Td';
+    if ($tdIndex > 7) {
+      // $tbody.appendChild(renderDayEntries());
+      fillDay[$tdIndex].textContent = data.dayArray.time;
+      fillDay[$tdIndex + 1].textContent = data.dayArray.description;
+      $tdIndex += 2;
+    } else {
+      fillDay[$tdIndex].textContent = data.dayArray.time;
+      fillDay[$tdIndex + 1].textContent = data.dayArray.description;
+      $tdIndex += 2;
     }
   }
 }
