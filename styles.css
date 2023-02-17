@@ -15,20 +15,46 @@ tr:nth-child(odd) {
 }
 
 table {
-  border:1px solid black;
+  border: 1px solid black;
   border-collapse: collapse;
   width: 100%;
 }
 
 th,
 td {
-border-left: 1px solid black;
-border-right: 1px solid black;
-height: 1rem;
-text-align: start;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  height: 1rem;
+  text-align: start;
 }
 
 .seven-col {
   display: flex;
   flex-basis: calc(100%/7);
+  justify-content: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.day-button {
+  height: 6rem;
+  width: 6rem;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: darkgray;
+}
+
+#add-entry {
+  height: 2rem;
+  width: 10rem;
+  margin-top: 2rem;
+  box-shadow: 0.25rem 0.25rem 0.25rem black;
+}
+
+#add-entry:hover {
+  background-color: aqua;
 }
