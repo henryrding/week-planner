@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Week Planner</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="layout.css">
 </head>
 <body>
   <div class="container">
@@ -90,11 +91,11 @@
         </tbody>
       </table>
     </div>
-    <div id="overlay" class="row">
+    <div id="overlay" class="row hidden">
       <div class="column-full popup">
         <form class="row">
-          <div class="column-full center">
-            <h1>Add Entry</h1>
+          <div class="column-full">
+            <h1 class="center">Add Entry</h1>
             <div class="dropdown">
               <select name="date" id="date">
                 <option value="" disabled selected hidden>Day of the week</option>
@@ -134,7 +135,7 @@
                 <option value="5">23:00</option>
               </select>
             </div>
-            <textarea name="description" id="description" cols="30" rows="10" placeholder="Description"></textarea>
+            <textarea class="description" name="description" id="description" cols="60" rows="5" placeholder="Description"></textarea>
             <div class="column-full flex-end">
               <button type="submit" id="submit-button">Submit</button>
             </div>
@@ -143,6 +144,7 @@
       </div>
     </div>
   </div>
+  <script src="data.js">
   <script src="main.js"></script>
 </body>
 </html>

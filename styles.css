@@ -1,9 +1,6 @@
 .center {
   justify-content: center;
-}
-
-.row {
-  display: flex;
+  text-align: center;
 }
 
 th {
@@ -26,12 +23,6 @@ td {
   border-right: 1px solid black;
   height: 1rem;
   text-align: start;
-}
-
-.seven-col {
-  display: flex;
-  flex-basis: calc(100%/7);
-  justify-content: center;
 }
 
 .space-between {
@@ -61,7 +52,26 @@ button:hover {
 
 #overlay {
   min-height: 100vh;
-  background-color: rgba(0, 0, 0 75%);
+  background-color: rgba(0, 0, 0, 75%);
   position: fixed;
   inset: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup {
+  background-color: white;
+  width: fit-content;
+  border-radius: 0.25rem;
+  padding: 1rem;
+}
+
+.flex-end {
+  display: flex;
+  justify-content: end;
+}
+
+.dropdown,
+.description {
+  margin-bottom: 1rem;
 }

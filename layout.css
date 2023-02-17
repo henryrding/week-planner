@@ -1,0 +1,13 @@
+.hidden {
+  display: none !important;
+}
+
+.row {
+  display: flex;
+}
+
+.seven-col {
+  display: flex;
+  flex-basis: calc(100%/7);
+  justify-content: center;
+}
