@@ -130,12 +130,18 @@ $form.addEventListener('submit', function (event) {
     time: $form.elements.time.value,
     description: $form.elements.description.value
   };
-  var dayInput = $form.elements.date.value;
-  for (var i = 0; i < data.dayInput.length; i++) {
-    if (formData.time <= data.dayInput[i].time) {
-      data.dayInput.splice(i, 0, formData);
+  var dayInput = formData.day;
+  for (var x in data) {
+    if (x === dayInput) {
+      data[x].push(formData);
+      for (var i = 1; i < data[x].length; i++) {
+        if (formData.time <= data[x][i].time) {
+          data[x].splice(i, 0, formData);
+        }
+      }
     }
   }
+  $overlay.className = 'row hidden';
 });
 
 var $tbody = document.querySelectorAll('tbody');
