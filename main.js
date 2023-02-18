@@ -133,20 +133,8 @@ $form.addEventListener('submit', function (event) {
   var dayInput = formData.day;
   for (var x in data) {
     if (x === dayInput) {
-      if (data[x].length === 0) {
-        data[x].push(formData);
-      } else {
-          for (var i = 0; i < data[x].length; i++) {
-            if (Number(formData.time) <= Number(data[x][i].time)) {
-              console.log(Number(formData.time));
-              console.log(Number(data[x][i].time));
-              var $propertyIndex = i;
-
-            }
-
-          }
-          data[x].splice($propertyIndex, 0, formData);
-        }
+      data[x].push(formData);
+      data[x].sort((a, b) => (a.time > b.time) ? 1 : -1);
     }
   }
   $overlay.className = 'row hidden';
@@ -175,7 +163,7 @@ function fillTable(dayArray) {
   for (var i = 0; i < data.dayArray.length; i++) {
     var fillDay = '$' + dayArray + 'Td';
     if ($tdIndex > 7) {
-      // $tbody.appendChild(renderDayEntries());
+      $tbody.appendChild(renderDayEntries());
       fillDay[$tdIndex].textContent = data.dayArray.time;
       fillDay[$tdIndex + 1].textContent = data.dayArray.description;
       $tdIndex += 2;
