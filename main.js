@@ -136,12 +136,17 @@ $form.addEventListener('submit', function (event) {
       if (data[x].length === 0) {
         data[x].push(formData);
       } else {
-        for (var i = 0; i < data[x].length; i++) {
-          if (Number(formData.time) <= Number(data[x][i].time)) {
-            data[x].splice(i, 0, formData);
+          for (var i = 0; i < data[x].length; i++) {
+            if (Number(formData.time) <= Number(data[x][i].time)) {
+              console.log(Number(formData.time));
+              console.log(Number(data[x][i].time));
+              var $propertyIndex = i;
+
+            }
+
           }
+          data[x].splice($propertyIndex, 0, formData);
         }
-      }
     }
   }
   $overlay.className = 'row hidden';
