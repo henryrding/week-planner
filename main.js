@@ -135,6 +135,7 @@ $form.addEventListener('submit', function (event) {
     if (x === dayInput) {
       data[x].push(formData);
       data[x].sort((a, b) => (a.time > b.time) ? 1 : -1);
+      fillTable(data[x]);
     }
   }
   $overlay.className = 'row hidden';
@@ -155,21 +156,43 @@ var $sundayTd = $sunday.querySelectorAll('td');
 var $mondayTd = $monday.querySelectorAll('td');
 var $tuesdayTd = $tuesday.querySelectorAll('td');
 var $wednesdayTd = $wednesday.querySelectorAll('td');
-var $thurdayTd = $thursday.querySelectorAll('td');
+var $thursdayTd = $thursday.querySelectorAll('td');
 var $fridayTd = $friday.querySelectorAll('td');
 var $saturdayTd = $saturday.querySelectorAll('td');
 var $tdIndex = 0;
 function fillTable(dayArray) {
-  for (var i = 0; i < data.dayArray.length; i++) {
-    var fillDay = '$' + dayArray + 'Td';
+  var fillDay = $sundayTd;
+  var tbodyIndex = 0;
+  if (dayArray.date === 'sunday') {
+    fillDay = $sundayTd;
+  } else if (dayArray.date === 'monday') {
+    fillDay = $mondayTd;
+    tbodyIndex = 1;
+  } else if (dayArray.date === 'tuesday') {
+    fillDay = $tuesdayTd;
+    tbodyIndex = 2;
+  } else if (dayArray.date === 'wednesday') {
+    fillDay = $wednesdayTd;
+    tbodyIndex = 3;
+  } else if (dayArray.date === 'thursday') {
+    fillDay = $thursdayTd;
+    tbodyIndex = 4;
+  } else if (dayArray.date === 'friday') {
+    fillDay = $fridayTd;
+    tbodyIndex = 5;
+  } else if (dayArray.date === 'saturday') {
+    fillDay = $saturdayTd;
+    tbodyIndex = 6;
+  }
+  for (var i = 0; i < dayArray.length; i++) {
     if ($tdIndex > 7) {
-      $tbody.appendChild(renderDayEntries());
-      fillDay[$tdIndex].textContent = data.dayArray.time;
-      fillDay[$tdIndex + 1].textContent = data.dayArray.description;
+      $tbody[tbodyIndex].appendChild(renderDayEntries());
+      fillDay[$tdIndex].textContent = dayArray[i].time;
+      fillDay[$tdIndex + 1].textContent = dayArray[i].description;
       $tdIndex += 2;
     } else {
-      fillDay[$tdIndex].textContent = data.dayArray.time;
-      fillDay[$tdIndex + 1].textContent = data.dayArray.description;
+      fillDay[$tdIndex].textContent = dayArray[i].time;
+      fillDay[$tdIndex + 1].textContent = dayArray[i].description;
       $tdIndex += 2;
     }
   }
